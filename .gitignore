@@ -1,4 +1,4 @@
 node_modules
 
 database/config
-client/bundle.js
+client/dist/bundle.js
