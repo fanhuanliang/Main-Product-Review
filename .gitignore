@@ -1,4 +1,4 @@
 node_modules
 
 database/config
-clent/bundle.js
+client/bundle.js
