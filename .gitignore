@@ -2,9 +2,5 @@ node_modules
 
 database/config
 client/dist/bundle.js
-
-
-**/bower_components
-**/lib
-**/vendor
-**/*.min.js
+data.json
+dummydatagenerator.js
