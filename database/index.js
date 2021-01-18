@@ -11,33 +11,31 @@ const connection = mysql.createConnection({
 connection.connect();
 
 var getColosseumData = (callback) => {
-  connection.query('SELECT * FROM users', (err, data) => {
+  connection.query('SELECT * FROM reviewList', (err, data) => {
     if (err) {
       callback(err);
     } else {
       callback(null, data);
     }
-  })
+  });
 };
 
-var insertColosseumData = (fakeData, callback) => {
-  // console.log(fakeData)
+// var insertColosseumData = (fakeData, callback) => {
 
-  for (let data of fakeData) {
-    var key = Object.keys(data)[0]
-    var arrData = data[key];
-    for (let eachData of arrData) {
-      connection.query(`INSERT INTO ${key} SET ?`, eachData, (err, results) => {
-        if (err) {
-          callback(err);
-        } else {
-          callback(null, results);
-        }
-      })
-    }
-  }
-};
+//   for (let data of fakeData) {
+//     var key = Object.keys(data)[0]
+//     var arrData = data[key];
+//     for (let eachData of arrData) {
+//       connection.query(`INSERT INTO ${key} SET ?`, eachData, (err, results) => {
+//         if (err) {
+//           callback(err);
+//         } else {
+//           callback(null, results);
+//         }
+//       })
+//     }
+//   }
+// };
 module.exports = {
-  getColosseumData,
-  insertColosseumData,
-}
+  getColosseumData
+};
