@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, '../client/dist')));
 app.get('/colosseum', (req, res) => {
   db.getColosseumData((err, results) => {
     if (err) {
-      res.status(404).send(err);
+      res.status(400).send(err);
     } else {
       res.status(200).send(results);
     }
@@ -21,18 +21,15 @@ app.get('/colosseum', (req, res) => {
 })
 
 app.post('/colosseum', (req, res) => {
-  // console.log(fakeData.generateUsers())
-  // console.log(req.body)
-  for (let i = 0; i < 10; i++) {
-    var fakeUser = fakeData.generateUsers()
-    db.insertColosseumData(fakeUser, (err, results) => {
-      if (err) {
-        res.status(404).send(err);
-      } else {
-        res.status(200).send(results);
-      }
-    })
-  }
+
+    var allData = [fakeData.generateUsers(), fakeData.generateProducts(),fakeData.generateReviews()];
+      db.insertColosseumData(allData, (err, results) => {
+        if (err) {
+          res.status(400).send(err);
+        } else {
+          res.end()
+        }
+      })
 })
 
 app.listen(port, () => {

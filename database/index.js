@@ -20,16 +20,22 @@ var getColosseumData = (callback) => {
   })
 };
 
-var insertColosseumData = (data, callback) => {
-  // console.log(JSON.stringify(data))
-  console.log(data)
-  connection.query(`INSERT INTO users(first_name, last_name) VALUES ("${data.first_name}", "${data.last_name}")`, data, (err, results) => {
-    if (err) {
-      callback(err);
-    } else {
-      callback(null, results);
+var insertColosseumData = (fakeData, callback) => {
+  // console.log(fakeData)
+
+  for (let data of fakeData) {
+    var key = Object.keys(data)[0]
+    var arrData = data[key];
+    for (let eachData of arrData) {
+      connection.query(`INSERT INTO ${key} SET ?`, eachData, (err, results) => {
+        if (err) {
+          callback(err);
+        } else {
+          callback(null, results);
+        }
+      })
     }
-  })
+  }
 };
 module.exports = {
   getColosseumData,

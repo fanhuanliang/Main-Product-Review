@@ -1,3 +1,5 @@
+DROP DATABASE IF EXISTS FEC;
+
 CREATE DATABASE FEC;
 
 USE FEC;
@@ -26,6 +28,7 @@ CREATE TABLE reviewList (
   image5 VARCHAR(255),
   product_id INT NOT NULL,
   users_id INT NOT NULL,
+  lego_reply TEXT,
   PRIMARY KEY (id),
   FOREIGN KEY (product_id) REFERENCES products(id),
   FOREIGN KEY (users_id) REFERENCES users(id)
