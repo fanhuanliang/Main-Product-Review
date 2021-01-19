@@ -20,9 +20,22 @@ var getReviewsData = (product_id, callback) => {
   });
 };
 
+var updateData = (data, callback) => {
+  var helpfulData = data[0].helpful_yes || data[0].helpful_no;
+  var updateKey = Object.keys(data[0])[0];
+  connection.query(`UPDATE reviewList SET ${updateKey} = ? WHERE id = ?`, [helpfulData, data[1]], (err, results) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(results);
+    }
+  });
+};
+
 
 module.exports = {
-  getReviewsData
+  getReviewsData,
+  updateData
 };
 
 

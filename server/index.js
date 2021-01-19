@@ -20,6 +20,23 @@ app.get('/api/products/:id', (req, res) => {
   });
 });
 
+app.put('/api/reviews/:id', (req, res) => {
+  var data = [req.body, req.params.id];
+  db.updateData(data, (err, results) => {
+    if (err) {
+      res.status(400).send(err);
+    } else {
+      res.status(200).send(results);
+    }
+  });
+});
+
+app.listen(port, () => {
+
+  console.log(`Example app listening at http://localhost:${port}`);
+});
+
+
 // app.post('/colosseum', (req, res) => {
 
 //     var allData = [fakeData.generateUsers(), fakeData.generateProducts(),fakeData.generateReviews()];
@@ -31,8 +48,3 @@ app.get('/api/products/:id', (req, res) => {
 //         }
 //       })
 // })
-
-app.listen(port, () => {
-
-  console.log(`Example app listening at http://localhost:${port}`);
-});
