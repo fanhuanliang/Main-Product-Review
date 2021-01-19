@@ -10,8 +10,8 @@ const connection = mysql.createConnection({
 
 connection.connect();
 
-var getColosseumData = (callback) => {
-  connection.query('SELECT * FROM reviewList', (err, data) => {
+var getReviewsData = (product_id, callback) => {
+  connection.query('SELECT * FROM reviewList WHERE product_id = ?', product_id, (err, data) => {
     if (err) {
       callback(err);
     } else {
@@ -20,8 +20,14 @@ var getColosseumData = (callback) => {
   });
 };
 
-// var insertColosseumData = (fakeData, callback) => {
 
+module.exports = {
+  getReviewsData
+};
+
+
+
+// var insertColosseumData = (fakeData, callback) => {
 //   for (let data of fakeData) {
 //     var key = Object.keys(data)[0]
 //     var arrData = data[key];
@@ -36,6 +42,3 @@ var getColosseumData = (callback) => {
 //     }
 //   }
 // };
-module.exports = {
-  getColosseumData
-};
