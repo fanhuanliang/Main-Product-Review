@@ -1,23 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import OverallReview from './OverallReview.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      reviews: []
+    };
   }
 
   getRequest() {
     axios.get('/api/products/1')
-      .then(function (response) {
+      .then((response) => {
         // handle success
-        console.log(response);
+        console.log(response.data);
+        this.setState({
+          reviews: response.data
+        });
       })
-      .catch(function (error) {
+      .catch((error)=> {
         // handle error
         console.log(error);
       })
-      .then(function () {
+      .then(() => {
         // always executed
       });
   }
@@ -30,6 +37,7 @@ class App extends React.Component {
     return (
       <div>
         <h1>Review Test</h1>
+        <OverallReview reviews = {this.state.reviews} />
       </div>
     );
   }
