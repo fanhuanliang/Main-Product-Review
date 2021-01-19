@@ -15,7 +15,7 @@ class App extends React.Component {
     axios.get('/api/products/1')
       .then((response) => {
         // handle success
-        console.log(response.data);
+        // console.log(response.data);
         this.setState({
           reviews: response.data
         });
@@ -36,8 +36,8 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>Review Test</h1>
-        <OverallReview reviews = {this.state.reviews} />
+        <h1>Customer Reviews</h1>
+        {/* <OverallReview reviews = {this.state.reviews} /> */}
       </div>
     );
   }

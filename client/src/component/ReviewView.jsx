@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 const Review = (props) => {
-  console.log(props.review);
+  // console.log(props.review);
   return (
     <div>
       <h3>Review</h3>

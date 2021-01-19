@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Review from './ReviewView.jsx';
 
 const OverallReview = (props) => {
-  console.log(props);
+  // console.log(props);
   return (
     <div>
       {props.reviews.map((review) => (
