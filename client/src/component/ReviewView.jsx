@@ -6,7 +6,7 @@ const Review = (props) => {
   return (
     <div>
       <h3>Review</h3>
-      {props.review.date_create}
+      {/* {props.review.date_create} */}
     </div>
   );
 };
