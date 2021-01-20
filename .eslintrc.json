@@ -101,6 +101,9 @@
         "quote-props": [
             "error",
             "consistent"
+        ],
+        "object-curly-newline": [
+            "off"
         ]
     }
 }
