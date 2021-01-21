@@ -17,6 +17,29 @@ CREATE TABLE users (
   PRIMARY KEY (id)
 );
 
+CREATE TABLE overall (
+  id INT NOT NULL AUTO_INCREMENT,
+  rating VARCHAR(255) NOT NULL,
+  difficulty VARCHAR(255) NOT NULL,
+  experience VARCHAR(255) NOT NULL,
+  value_money VARCHAR(255) NOT NULL,
+  rate1 INT NOT NULL,
+  rate2 INT NOT NULL,
+  rate3 INT NOT NULL,
+  rate4 INT NOT NULL,
+  rate5 INT NOT NULL,
+  ratePercentage1 VARCHAR(255) NOT NULL,
+  ratePercentage2 VARCHAR(255) NOT NULL,
+  ratePercentage3 VARCHAR(255) NOT NULL,
+  ratePercentage4 VARCHAR(255) NOT NULL,
+  ratePercentage5 VARCHAR(255) NOT NULL,
+  recommendToOther VARCHAR(255) NOT NULL,
+  number_review INT NOT NULL,
+  product_id INT NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (product_id) REFERENCES products(id)
+);
+
 CREATE TABLE reviewList (
   id INT NOT NULL AUTO_INCREMENT,
   date_create VARCHAR(200) NOT NULL,

@@ -34,7 +34,7 @@ const updateData = (data, callback) => {
 
 // const insertData = (fakeData, callback) => {
 //   for (let data of fakeData) {
-//     const key = Object.keys(data)[0]
+//     const key = Object.keys(data)[0];
 //     const arrData = data[key];
 //     for (let eachData of arrData) {
 //       connection.query(`INSERT INTO ${key} SET ?`, eachData, (err, results) => {
@@ -43,12 +43,24 @@ const updateData = (data, callback) => {
 //         } else {
 //           callback(null, results);
 //         }
-//       })
+//       });
 //     }
 //   }
 // };
 
+// const insertOverall = (fakeData, callback) => {
+//   console.log(fakeData)
+//   connection.query('INSERT INTO overall SET ?', fakeData, (err, results) => {
+//     if (err) {
+//       callback(err);
+//     } else {
+//       callback(null, results);
+//     }
+//   });
+// };
+
 module.exports = {
+  // insertOverall,
   // insertData,
   getReviewsData,
   updateData

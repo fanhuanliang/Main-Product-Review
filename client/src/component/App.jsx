@@ -11,6 +11,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      reviewsCount: 0,
       overall: {},
       reviews: []
     };
@@ -24,6 +25,7 @@ class App extends React.Component {
         // console.log(this.getFormattedDate(response.data));
         // let overallData = this.getFormattedDate(response.data);
         this.setState({
+          reviewsCount: response.data.slice(1).length,
           overall: response.data[0],
           reviews: response.data.slice(1)
         });
@@ -45,7 +47,7 @@ class App extends React.Component {
     // console.log(this.state.reviews)
     return (
       <div>
-        <Overall overall={this.state.overall} />
+        <Overall overall={this.state.overall} reviewsCount={this.state.reviewsCount} />
         <Reviews reviews={this.state.reviews} />
       </div>
     );

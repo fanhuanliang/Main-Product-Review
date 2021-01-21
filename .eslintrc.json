@@ -104,6 +104,12 @@
         ],
         "object-curly-newline": [
             "off"
+        ],
+        "jsx-a11y/alt-text": [
+            "off"
+        ],
+        "default-case": [
+            "off"
         ]
     }
 }
