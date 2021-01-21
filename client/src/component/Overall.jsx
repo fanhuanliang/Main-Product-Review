@@ -1,38 +1,69 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Rating from './Rating.jsx';
+import BarRating from './BarRating.jsx';
+// import { Row, Col ,Button} from 'antd';
 
 class Overall extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      // data: [],
-      // overall_rating: ''
-    };
+    // this.state = {
+    //   writeReview: ''
+    // };
+  }
+
+  handleSubmit(event){
+    // console.log('write review page')
   }
 
   render() {
-    console.log(this.props);
-    const { difficulty, experience, rate1, rate2, rate3, rate4, rate5, rating, recommendToOther, numberOfReviews, value } = this.props.overall;
+    // console.log(this.props.overall)
+    const { difficulty, experience, rate1, rate2, rate3, rate4, rate5, rating, recommendToOther, number_review, value_money, ratePercentage1, ratePercentage2, ratePercentage3, ratePercentage4, ratePercentage5 } = this.props.overall;
+
+    const barData = [
+      { 'id': 5, 'ratePercentage': ratePercentage5, 'rate': rate5 },
+      { 'id': 4, 'ratePercentage': ratePercentage4, 'rate': rate4 },
+      { 'id': 3, 'ratePercentage': ratePercentage3, 'rate': rate3 },
+      { 'id': 2, 'ratePercentage': ratePercentage2, 'rate': rate2 },
+      { 'id': 1, 'ratePercentage': ratePercentage1, 'rate': rate1 }
+    ];
+    const starRating = { 'star': rating };
+
     return (
       <div>
-        <h2>Customer Reviews({numberOfReviews})</h2>
-        <div className='rating'>
-          <Rating value={rating} />
-          {rating}
-        ({this.props.reviewsCount} Reviews)
+        <div>Customer Reviews ({number_review})</div>
+        <div className="rating">
+          <Rating value={starRating} />
+          <span>
+            {rating} ({this.props.reviewsCount} Reviews)
+          </span>
         </div>
-        <div className='recommend'>
-          {recommendToOther}would recommend this product.
+        <div className="recommend">{recommendToOther}would recommend this product.</div>
+        <p>Rating</p>
+        <div>
+          {barData.map((bar) => (
+            <BarRating bar={bar} key={bar.id} />
+          ))}
         </div>
-        <div className='rating_stars'>
-        <div>Rating</div>
-          <div>5 stars {rate5} Reviews</div>
-          <div>4 stars {rate4} Reviews</div>
-          <div>3 stars {rate3} Reviews</div>
-          <div>2 stars {rate2} Reviews</div>
-          <div>1 stars {rate1} Reviews</div>
+        <div>
+          <p>Overall Experience</p>
+          <div>
+            <p>Play Experience</p>
+            <Rating value={experience} />
+            <span>{experience}</span>
+            <p>Level of Difficulty</p>
+            <Rating value={difficulty} />
+            <span>{difficulty}</span>
+            <p>Value for Money</p>
+            <Rating value={value_money} />
+            <span>{value_money}</span>
+          </div>
         </div>
+      <div>
+      <button onClick={this.handleSubmit()}>
+      Write a Review
+      </button>
+      </div>
       </div>
     );
   }

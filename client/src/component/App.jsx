@@ -1,6 +1,3 @@
-/* eslint-disable default-case */
-/* eslint-disable no-plusplus */
-/* eslint-disable prefer-const */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
@@ -18,16 +15,31 @@ class App extends React.Component {
   }
 
   getRequest() {
-    axios.get('/api/products/1')
+    axios.get('/api/products/3')
       .then((response) => {
         // handle success
-        console.log(response.data);
-        // console.log(this.getFormattedDate(response.data));
-        // let overallData = this.getFormattedDate(response.data);
+        // console.log(response.data)
         this.setState({
-          reviewsCount: response.data.slice(1).length,
-          overall: response.data[0],
-          reviews: response.data.slice(1)
+          reviewsCount: response.data.length,
+          reviews: response.data
+        });
+      })
+      .catch((error) => {
+        // handle error
+        console.log(error);
+      })
+      .then(() => {
+        // always executed
+        // this.getOverallRequest();
+      });
+  }
+
+  getOverallRequest() {
+    axios.get('/api/products/overall/3')
+      .then((response) => {
+        // handle success
+        this.setState({
+          overall: response.data[0]
         });
       })
       .catch((error) => {
@@ -41,6 +53,7 @@ class App extends React.Component {
 
   componentDidMount() {
     this.getRequest();
+    this.getOverallRequest();
   }
 
   render() {

@@ -41,6 +41,7 @@
     "webpack-cli": "^4.3.1"
   },
   "dependencies": {
+    "antd": "^4.10.3",
     "axios": "^0.21.1",
     "body-parser": "^1.17.2",
     "express": "^4.15.0",

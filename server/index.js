@@ -15,6 +15,17 @@ app.get('/api/products/:id', (req, res) => {
     if (err) {
       res.status(400).send(err);
     } else {
+
+      res.status(200).send(results);
+    }
+  });
+});
+
+app.get('/api/products/overall/:id', (req, res) => {
+  db.getOverallData(req.params.id, (err, results) => {
+    if (err) {
+      res.status(400).send(err);
+    } else {
       res.status(200).send(results);
     }
   });
@@ -29,6 +40,10 @@ app.put('/api/reviews/:id', (req, res) => {
       res.status(200).send(results);
     }
   });
+});
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`);
 });
 
 // const getFormattedDate = (data) => {
@@ -159,6 +174,3 @@ app.put('/api/reviews/:id', (req, res) => {
 //   });
 // });
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
-});

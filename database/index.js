@@ -20,6 +20,16 @@ const getReviewsData = (product_id, callback) => {
   });
 };
 
+const getOverallData = (product_id, callback) => {
+  connection.query('SELECT * FROM overall WHERE product_id = ?', product_id, (err, data) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, data);
+    }
+  });
+};
+
 const updateData = (data, callback) => {
   const helpfulData = data[0].helpful_yes || data[0].helpful_no;
   const updateKey = Object.keys(data[0])[0];
@@ -62,6 +72,7 @@ const updateData = (data, callback) => {
 module.exports = {
   // insertOverall,
   // insertData,
+  getOverallData,
   getReviewsData,
   updateData
 };
