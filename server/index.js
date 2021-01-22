@@ -1,22 +1,37 @@
+/* eslint-disable prefer-const */
 const express = require('express');
 const app = express();
 const port = 3000;
 const bodyParser = require('body-parser');
 const path = require('path');
 const db = require('../database/index.js');
-const fakeData = require('../dummydatagenerator.js');
+// const fakeData = require'../dummydatagenerator.js');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../client/dist')));
+
+const getPerPage = (number, data) => {
+  let currentPage = number;
+  let postsPerPage = 5;
+  let indexOfLastPost = currentPage * postsPerPage;
+  let indexOfFirstPost = indexOfLastPost - postsPerPage;
+  let currentReviews = data.slice(indexOfFirstPost, indexOfLastPost);
+  currentReviews.unshift(data.length);
+  return currentReviews;
+};
 
 app.get('/api/products/:id', (req, res) => {
   db.getReviewsData(req.params.id, (err, results) => {
     if (err) {
       res.status(400).send(err);
     } else {
-
-      res.status(200).send(results);
+      let selectPage = 1;
+      if (req.query.page !== 'undefined') {
+        selectPage = req.query.page;
+      }
+      let currentPage = getPerPage(selectPage, results);
+      res.status(200).send(currentPage);
     }
   });
 });
@@ -173,4 +188,3 @@ app.listen(port, () => {
 //     }
 //   });
 // });
-

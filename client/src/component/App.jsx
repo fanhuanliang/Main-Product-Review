@@ -1,27 +1,30 @@
+/* eslint-disable react/jsx-no-bind */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Reviews from './ReviewsView.jsx';
 import Overall from './Overall.jsx';
+import Pagination from './Pagination.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      reviewsCount: 0,
+      totalReviews: 0,
       overall: {},
-      reviews: []
+      reviews: [],
+      reviewPerPage: 5
     };
   }
 
-  getRequest() {
-    axios.get('/api/products/3')
+  getRequest(number) {
+    axios.get(`/api/products/3?page=${number}`)
       .then((response) => {
         // handle success
         // console.log(response.data)
         this.setState({
-          reviewsCount: response.data.length,
-          reviews: response.data
+          totalReviews: response.data[0],
+          reviews: response.data.slice(1)
         });
       })
       .catch((error) => {
@@ -30,7 +33,7 @@ class App extends React.Component {
       })
       .then(() => {
         // always executed
-        // this.getOverallRequest();
+        this.getOverallRequest();
       });
   }
 
@@ -51,17 +54,23 @@ class App extends React.Component {
       });
   }
 
+  paginate(pageNumber) {
+    // this.getOverallRequest();
+    this.getRequest(pageNumber);
+  }
+
   componentDidMount() {
     this.getRequest();
-    this.getOverallRequest();
   }
 
   render() {
     // console.log(this.state.reviews)
+    const { overall, totalReviews, reviews, reviewPerPage } = this.state;
     return (
       <div>
-        <Overall overall={this.state.overall} reviewsCount={this.state.reviewsCount} />
-        <Reviews reviews={this.state.reviews} />
+        <Overall overall={overall} totalReviews={totalReviews} />
+        <Reviews reviews={reviews} />
+        <Pagination reviewPerPage={reviewPerPage} totalReviews={totalReviews} paginate={this.paginate.bind(this)} />
       </div>
     );
   }

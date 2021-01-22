@@ -90,10 +90,6 @@
             "error",
             { "allowForLoopAfterthoughts": true }
         ],
-        "max-len": [
-            "error",
-            { "code": 150 }
-        ],
         "prefer-const": [
             "error",
             {"destructuring": "any"}
@@ -109,6 +105,9 @@
             "off"
         ],
         "default-case": [
+            "off"
+        ],
+        "max-len": [
             "off"
         ]
     }

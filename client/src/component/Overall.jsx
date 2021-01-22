@@ -2,17 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Rating from './Rating.jsx';
 import BarRating from './BarRating.jsx';
-// import { Row, Col ,Button} from 'antd';
 
 class Overall extends React.Component {
-  constructor(props) {
-    super(props);
-    // this.state = {
-    //   writeReview: ''
-    // };
-  }
+  // constructor(props) {
+  //   super(props);
+  // this.state = {
+  //   writeReview: ''
+  // };
+  // }
 
-  handleSubmit(event){
+  // eslint-disable-next-line class-methods-use-this
+  handleSubmit() {
     // console.log('write review page')
   }
 
@@ -31,14 +31,26 @@ class Overall extends React.Component {
 
     return (
       <div>
-        <div>Customer Reviews ({number_review})</div>
-        <div className="rating">
+        <div>
+          Customer Reviews
+          (
+          {number_review}
+          )
+        </div>
+        <div className='rating'>
           <Rating value={starRating} />
           <span>
-            {rating} ({this.props.reviewsCount} Reviews)
+            {rating}
+            (
+            {this.props.reviewsCount}
+            Reviews
+            )
           </span>
         </div>
-        <div className="recommend">{recommendToOther}would recommend this product.</div>
+        <div className='recommend'>
+          {recommendToOther}
+          would recommend this product.
+        </div>
         <p>Rating</p>
         <div>
           {barData.map((bar) => (
@@ -59,11 +71,11 @@ class Overall extends React.Component {
             <span>{value_money}</span>
           </div>
         </div>
-      <div>
-      <button onClick={this.handleSubmit()}>
-      Write a Review
-      </button>
-      </div>
+        <div>
+          <button type='button' onClick={this.handleSubmit()}>
+            Write a Review
+          </button>
+        </div>
       </div>
     );
   }
