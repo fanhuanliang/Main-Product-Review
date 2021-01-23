@@ -21,10 +21,11 @@ const getPerPage = (number, data) => {
   return currentReviews;
 };
 
+// eslint-disable-next-line consistent-return
 const getSort = (query) => {
   let sortByCategory = {
     'Most relevant': 'id',
-    'Helpfulness': 'helpful_yes',
+    'Helpfulness': '1helpful_yes',
     'Rating - Low to High': 'overall_rate',
     'Rating - High to Low': '1overall_rate',
     'Date - oldest first': 'date_create',

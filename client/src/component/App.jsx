@@ -22,7 +22,7 @@ class App extends React.Component {
     axios.get(`/api/products/3?page=${number}&sort=${sort}`)
       .then((response) => {
         // handle success
-        console.log(response.data);
+        // console.log(response.data);
         this.setState({
           totalReviews: response.data[0],
           reviews: response.data.slice(1)

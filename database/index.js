@@ -1,3 +1,4 @@
+/* eslint-disable prefer-template */
 const mysql = require('mysql');
 const key = require('./config/key.js');
 
@@ -11,12 +12,12 @@ const connection = mysql.createConnection({
 connection.connect();
 
 const getReviewsData = (reqData, callback) => {
-  console.log(reqData);
-  let product_id = reqData[0];
-  let sorter = reqData[1];
+  // console.log(reqData);
+  const product_id = reqData[0];
+  const sorter = reqData[1];
   let sql = 'SELECT * FROM reviewList WHERE product_id = ? ';
-  if (sorter === '1date_create' || sorter === '1overall_rate') {
-    sql = 'SELECT * FROM reviewList WHERE product_id = ? ORDER BY ' + connection.escapeId(sorter.slice(1)) + 'DESC'
+  if (sorter === '1date_create' || sorter === '1overall_rate' || sorter === '1helpful_yes') {
+    sql = 'SELECT * FROM reviewList WHERE product_id = ? ORDER BY ' + connection.escapeId(sorter.slice(1)) + 'DESC';
   } else if (sorter !== undefined) {
     sql = 'SELECT * FROM reviewList WHERE product_id = ? ORDER BY ' + connection.escapeId(sorter);
   }
