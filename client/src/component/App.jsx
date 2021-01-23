@@ -5,6 +5,7 @@ import axios from 'axios';
 import Reviews from './ReviewsView.jsx';
 import Overall from './Overall.jsx';
 import Pagination from './Pagination.jsx';
+import SortData from './SortData.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -17,11 +18,11 @@ class App extends React.Component {
     };
   }
 
-  getRequest(number) {
-    axios.get(`/api/products/3?page=${number}`)
+  getRequest(number, sort) {
+    axios.get(`/api/products/3?page=${number}&sort=${sort}`)
       .then((response) => {
         // handle success
-        // console.log(response.data)
+        console.log(response.data);
         this.setState({
           totalReviews: response.data[0],
           reviews: response.data.slice(1)
@@ -59,6 +60,11 @@ class App extends React.Component {
     this.getRequest(pageNumber);
   }
 
+  handleSortData(e) {
+    // this.getRequest();
+    this.getRequest(1, e);
+  }
+
   componentDidMount() {
     this.getRequest();
   }
@@ -69,6 +75,7 @@ class App extends React.Component {
     return (
       <div>
         <Overall overall={overall} totalReviews={totalReviews} />
+        <SortData sortData={this.handleSortData.bind(this)} />
         <Reviews reviews={reviews} />
         <Pagination reviewPerPage={reviewPerPage} totalReviews={totalReviews} paginate={this.paginate.bind(this)} />
       </div>

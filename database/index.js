@@ -10,8 +10,18 @@ const connection = mysql.createConnection({
 
 connection.connect();
 
-const getReviewsData = (product_id, callback) => {
-  connection.query('SELECT * FROM reviewList WHERE product_id = ?', product_id, (err, data) => {
+const getReviewsData = (reqData, callback) => {
+  console.log(reqData);
+  let product_id = reqData[0];
+  let sorter = reqData[1];
+  let sql = 'SELECT * FROM reviewList WHERE product_id = ? ';
+  if (sorter === '1date_create' || sorter === '1overall_rate') {
+    sql = 'SELECT * FROM reviewList WHERE product_id = ? ORDER BY ' + connection.escapeId(sorter.slice(1)) + 'DESC'
+  } else if (sorter !== undefined) {
+    sql = 'SELECT * FROM reviewList WHERE product_id = ? ORDER BY ' + connection.escapeId(sorter);
+  }
+
+  connection.query(sql, product_id, (err, data) => {
     if (err) {
       callback(err);
     } else {

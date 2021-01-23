@@ -21,8 +21,26 @@ const getPerPage = (number, data) => {
   return currentReviews;
 };
 
+const getSort = (query) => {
+  let sortByCategory = {
+    'Most relevant': 'id',
+    'Helpfulness': 'helpful_yes',
+    'Rating - Low to High': 'overall_rate',
+    'Rating - High to Low': '1overall_rate',
+    'Date - oldest first': 'date_create',
+    'Date - newest first': '1date_create'
+  };
+  for (let key in sortByCategory) {
+    if (key === query) {
+      return (sortByCategory[key]);
+    }
+  }
+};
+
 app.get('/api/products/:id', (req, res) => {
-  db.getReviewsData(req.params.id, (err, results) => {
+  let sortQuery = getSort(req.query.sort);
+  // console.log(sortQuery);
+  db.getReviewsData([req.params.id, sortQuery], (err, results) => {
     if (err) {
       res.status(400).send(err);
     } else {
