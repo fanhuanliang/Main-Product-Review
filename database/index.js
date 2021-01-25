@@ -42,13 +42,17 @@ const getOverallData = (product_id, callback) => {
 };
 
 const updateData = (data, callback) => {
-  const helpfulData = data[0].helpful_yes || data[0].helpful_no;
-  const updateKey = Object.keys(data[0])[0];
-  connection.query(`UPDATE reviewList SET ${updateKey} = ? WHERE id = ?`, [helpfulData, data[1]], (err, results) => {
+  const userId=Number(data[0].id);
+  const updateCol=data[0].option;
+  const updateData=[data[0].likeOrDislike, userId]
+
+  // console.log(updateCol)
+  // console.log(updateData)
+  connection.query(`UPDATE reviewList SET ${updateCol} = ? WHERE id = ?`, updateData, (err, results) => {
     if (err) {
       callback(err);
     } else {
-      callback(results);
+      callback(null, results);
     }
   });
 };

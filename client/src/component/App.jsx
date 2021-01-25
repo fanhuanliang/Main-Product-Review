@@ -6,6 +6,7 @@ import Reviews from './ReviewsView.jsx';
 import Overall from './Overall.jsx';
 import Pagination from './Pagination.jsx';
 import SortData from './SortData.jsx';
+import TopBar from './TopBar.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -14,11 +15,13 @@ class App extends React.Component {
       totalReviews: 0,
       overall: {},
       reviews: [],
-      reviewPerPage: 5
+      reviewPerPage: 5,
+      hiding: 'auto'
     };
   }
 
   getRequest(number, sort) {
+    // console.log(number)
     axios.get(`/api/products/3?page=${number}&sort=${sort}`)
       .then((response) => {
         // handle success
@@ -55,6 +58,14 @@ class App extends React.Component {
       });
   }
 
+  hiddenContent() {
+    if (this.state.hiding === '0px') {
+      this.setState({ hiding: 'auto' });
+    } else if (this.state.hiding === 'auto') {
+      this.setState({ hiding: '0px' });
+    }
+  }
+
   paginate(pageNumber) {
     // this.getOverallRequest();
     this.getRequest(pageNumber);
@@ -71,13 +82,21 @@ class App extends React.Component {
 
   render() {
     // console.log(this.state.reviews)
-    const { overall, totalReviews, reviews, reviewPerPage } = this.state;
+    const { overall, totalReviews, reviews, reviewPerPage, hiding } = this.state;
+    if (!totalReviews || !overall) {
+      return 'loading...';
+    }
     return (
-      <div>
-        <Overall overall={overall} totalReviews={totalReviews} />
-        <SortData sortData={this.handleSortData.bind(this)} />
-        <Reviews reviews={reviews} />
-        <Pagination reviewPerPage={reviewPerPage} totalReviews={totalReviews} paginate={this.paginate.bind(this)} />
+      <div className='container'>
+        <TopBar totalReviews={totalReviews} hiddenContent={this.hiddenContent.bind(this)} />
+        <div className='wrapper' style={{ height: hiding }}>
+          <div className='style_wrapper'>
+            <Overall overall={overall} />
+            <SortData sortData={this.handleSortData.bind(this)} />
+            <Reviews reviews={reviews} />
+            <Pagination reviewPerPage={reviewPerPage} totalReviews={totalReviews} paginate={this.paginate.bind(this)} />
+          </div>
+        </div>
       </div>
     );
   }
