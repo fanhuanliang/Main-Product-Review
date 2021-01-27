@@ -1,21 +1,39 @@
-import React from 'react';
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+import React, { useState, useEffect } from 'react';
 
-const Image = ({ image1, image2, image3 }) => {
-  // console.log(props);
+const Image = (props) => {
+  // console.log(props.img)
+  const [displayImg, setDisplay] = useState('none');
+  const [srcImg, setSrc] = useState('');
+
+  const popUpStyle = {
+    display: displayImg,
+    src: srcImg
+  };
+
+  const popUpImg = (e) => {
+    // console.log(popUpStyle);
+    setDisplay('block');
+    setSrc(e.target.src);
+  };
+
+  const closeImg = () => {
+    // console.log('close');
+    setDisplay('none');
+  };
   return (
-    <div className='images'>
       <div className='img'>
         <span className='image-size'>
-          <img src={image1} alt="user's upload" style={{ height: '60px', width: '60px' }} />
+          <img src={props.img} alt="user's upload" style={{ height: '60px', width: '60px' }} onClick={(e) => { popUpImg(e); }} />
         </span>
-        <span className='image-size'>
-          <img className='img' src={image2} alt="user's upload" style={{ height: '60px', width: '60px' }} />
-        </span>
-        <span className='image-size'>
-          <img className='img' src={image3} alt="user's upload" style={{ height: '60px', width: '60px' }} />
+        <span id='myModal' className='modal' style={{ display: displayImg }}>
+          <span className='close' onClick={(e) => { closeImg(); }}>&times;</span>
+          <img className='modal-content' id='img01' src={srcImg} />
         </span>
       </div>
-    </div>
   );
 };
+
 export default Image;

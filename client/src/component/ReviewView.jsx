@@ -50,20 +50,9 @@ const Review = (props) => {
           <span>{purchase_for}</span>
         </div>
         <DisplayParagraph content={content} />
-        <Image image1={image1} image2={image2} image3={image3} />
-        {/* <div className='images'>
-          <div className='img'>
-            <span className='image-size'>
-              <img src={image1} alt="user's upload" style={{ height: '60px', width: '60px' }} />
-            </span>
-            <span className='image-size'>
-              <img className='img' src={image2} alt="user's upload" style={{ height: '60px', width: '60px' }} />
-            </span>
-            <span className='image-size'>
-              <img className='img' src={image3} alt="user's upload" style={{ height: '60px', width: '60px' }} />
-            </span>
-          </div>
-        </div> */}
+        <div className='images'>
+          {[image1, image2, image3].map((img, index) => <Image img={img} key={index} />)}
+        </div>
         <div className='helpful'>
           <p>Was this helpful?</p>
           <LikeDislike helpful_yes={helpful_yes} helpful_no={helpful_no} id={id} />
