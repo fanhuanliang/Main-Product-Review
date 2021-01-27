@@ -299,3 +299,5 @@ select:focus {
   outline: none !important;
   outline-offset: none !important;
 }
+
+.animation-btn:focus {outline:0;}

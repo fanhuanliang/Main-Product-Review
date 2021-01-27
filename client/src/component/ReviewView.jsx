@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Rating from './Rating.jsx';
 import LikeDislike from './LikeDislike.jsx';
 import DisplayParagraph from './DisplayParagraph.jsx';
+import Image from './Image.jsx';
 
 function ConvertMinutes(num) {
   const d = Math.floor(num / 1440);
@@ -49,7 +50,8 @@ const Review = (props) => {
           <span>{purchase_for}</span>
         </div>
         <DisplayParagraph content={content} />
-        <div className='images'>
+        <Image image1={image1} image2={image2} image3={image3} />
+        {/* <div className='images'>
           <div className='img'>
             <span className='image-size'>
               <img src={image1} alt="user's upload" style={{ height: '60px', width: '60px' }} />
@@ -61,7 +63,7 @@ const Review = (props) => {
               <img className='img' src={image3} alt="user's upload" style={{ height: '60px', width: '60px' }} />
             </span>
           </div>
-        </div>
+        </div> */}
         <div className='helpful'>
           <p>Was this helpful?</p>
           <LikeDislike helpful_yes={helpful_yes} helpful_no={helpful_no} id={id} />
