@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 const mysql = require('mysql');
 const key = require('./config/key.js');
 
@@ -27,11 +28,13 @@ const insertData = (fakeData, callback) => {
   for (let data of fakeData) {
     const key = Object.keys(data)[0];
     const arrData = data[key];
+    // console.log(arrData)
     for (let eachData of arrData) {
       connection.query(`INSERT INTO ${key} SET ?`, eachData, (err, results) => {
         if (err) {
           callback(err);
         } else {
+          // console.log(results)
           callback(null, results);
         }
       });
