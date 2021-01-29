@@ -1,6 +1,7 @@
+/* eslint-disable no-shadow */
 /* eslint-disable prefer-const */
 const mysql = require('mysql');
-const key = require('./config/key.js');
+const key = require('../database/config/key.js');
 
 const connection = mysql.createConnection({
   host: 'localhost',
