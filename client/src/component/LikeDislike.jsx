@@ -21,7 +21,7 @@ class LikeDislike extends React.Component {
   putRequest(data) {
     axios.put('/api/reviews/3', data)
       .then((response) => {
-        console.log(response);
+        // console.log(response);
       })
       .catch((error) => {
         console.log(error);

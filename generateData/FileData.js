@@ -4,11 +4,6 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable prefer-const */
 /* eslint-disable prefer-destructuring */
-// const express = require('express');
-// const app = express();
-// const port = 2800;
-// const bodyParser = require('body-parser');
-// const path = require('path');
 const db = require('./database.js');
 const fakeData = require('./dummydatagenerator.js');
 
@@ -157,6 +152,3 @@ const getFormattedDate = (data) => {
       }
     });
   }
-  // app.listen(port, () => {
-  //   console.log(`Example app listening at http://localhost:${port}`);
-  // });
