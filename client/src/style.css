@@ -364,7 +364,7 @@ select:focus {
   transition: 0.3s;
 }
 
-.close:hover,
+
 .close:focus {
   color: #bbb;
   text-decoration: none;
