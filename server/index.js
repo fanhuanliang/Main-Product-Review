@@ -5,11 +5,9 @@ const port = 3003;
 const bodyParser = require('body-parser');
 const path = require('path');
 const db = require('../database/index.js');
-// const fakeData = require'../dummydatagenerator.js');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-// app.use('/products/:id', express.static(path.join(__dirname, '../client/dist')));
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
 const getPerPage = (number, data) => {
@@ -70,16 +68,6 @@ app.put('/api/reviews/:id', (req, res) => {
   db.updateData(data, (err, results) => {
     if (err) {
       res.status(400).send(err);
-    } else {
-      res.status(200).send(results);
-    }
-  });
-});
-
-app.post('/api/reviews', (req, res) => {
-  db.writeReview(review, (err, results) => {
-    if (err) {
-      res.status(404).send(err);
     } else {
       res.status(200).send(results);
     }
