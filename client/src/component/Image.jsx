@@ -24,15 +24,15 @@ const Image = (props) => {
     setDisplay('none');
   };
   return (
-      <div className='img'>
-        <span className='image-size'>
-          <img src={props.img} alt="user's upload" style={{ height: '60px', width: '60px' }} onClick={(e) => { popUpImg(e); }} />
-        </span>
-        <span id='myModal' className='modal' style={{ display: displayImg }}>
-          <span className='close' onClick={(e) => { closeImg(); }}>&times;</span>
-          <img className='modal-content' id='img01' src={srcImg} />
-        </span>
-      </div>
+    <div className='img'>
+      <span className='image-size'>
+        <img src={props.img} alt="user's upload" style={{ height: '60px', width: '60px' }} onClick={(e) => { popUpImg(e); }} />
+      </span>
+      <span id='myModal' className='modal' style={{ display: displayImg }}>
+        <span className='close' onClick={(e) => { closeImg(); }}>&times;</span>
+        <img className='modal-content' id='img01' src={srcImg} />
+      </span>
+    </div>
   );
 };
 
