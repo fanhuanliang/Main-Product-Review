@@ -41,7 +41,6 @@ const getSort = (query) => {
 
 app.get('/api/products/:id', (req, res) => {
   let sortQuery = getSort(req.query.sort);
-  // console.log(req.query);
   db.getReviewsData([req.params.id, sortQuery], (err, results) => {
     if (err) {
       res.status(400).send(err);
@@ -61,19 +60,26 @@ app.get('/api/products/overall/:id', (req, res) => {
     if (err) {
       res.status(400).send(err);
     } else {
-      // console.log(results)
       res.status(200).send(results);
     }
   });
 });
 
 app.put('/api/reviews/:id', (req, res) => {
-  // console.log(req.params.id)
-  // console.log(req.body)
   const data = [req.body, req.params.id];
   db.updateData(data, (err, results) => {
     if (err) {
       res.status(400).send(err);
+    } else {
+      res.status(200).send(results);
+    }
+  });
+});
+
+app.post('/api/reviews', (req, res) => {
+  db.writeReview(review, (err, results) => {
+    if (err) {
+      res.status(404).send(err);
     } else {
       res.status(200).send(results);
     }
