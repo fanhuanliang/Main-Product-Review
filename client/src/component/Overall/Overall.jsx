@@ -17,7 +17,6 @@ class Overall extends React.Component {
   }
 
   render() {
-    // console.log(this.props.overall)
     const { difficulty, experience, rate1, rate2, rate3, rate4, rate5, rating, recommendToOther, number_review, value_money, ratePercentage1, ratePercentage2, ratePercentage3, ratePercentage4, ratePercentage5 } = this.props.overall;
 
     const barData = [
@@ -31,53 +30,67 @@ class Overall extends React.Component {
 
     return (
       <div className='overview'>
-        <div className='rating-top'>
+        <div className='overview-wrapper'>
           <div className='overallRating'>
-            Overall Rating
-            <div className='rating'>
-              <Rating value={starRating} />
-              <span className='count-reviews'>
-                {rating}
-                (
-                {this.props.reviewsCount}
-                Reviews
-                )
-              </span>
+            <div>
+              Overall Rating
+              <div className='rating'>
+                <Rating value={starRating} />
+                <div className='count-space'>
+                  <span className='count-reviews'>
+                    {rating}
+                    <span>
+                      (
+                      {this.props.totalReviews}
+                      Reviews
+                      )
+                    </span>
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
-          <button className='review-btn' type='button' onClick={this.handleSubmit()}>
-            Write a Review
-          </button>
-        </div>
-        <div className='recommend'>
-          {recommendToOther}
-          would recommend this product.
-        </div>
-        <div className='rating-box'>
-          <div className='left-part'>
-            <p>Rating</p>
-            <div className='rating-part'>
-              {barData.map((bar) => (
-                <BarRating bar={bar} key={bar.id} />
-              ))}
-            </div>
-          </div>
-          <div className='overall-experience'>
-            <p>Overall Experience</p>
-            <div className='rating'>
-              <p>Play Experience</p>
-              <Rating value={experience} />
-              <span>{experience}</span>
-              <p>Level of Difficulty</p>
-              <Rating value={difficulty} />
-              <span>{difficulty}</span>
-              <p>Value for Money</p>
-              <Rating value={value_money} />
-              <span>{value_money}</span>
-            </div>
-          </div>
-        </div>
+          <span className='recommend'>
+            {recommendToOther}
+            would recommend this product.
+          </span>
 
+          <div className='middle-part'>
+            <div className='rating-box'>
+              <div className='left-part'>
+                <p>Rating</p>
+                <div className='rating-part'>
+                  {barData.map((bar) => (
+                    <BarRating bar={bar} key={bar.id} />
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className='overall-experience'>
+              <p>Overall Experience</p>
+              <div>
+                <p>Play Experience</p>
+                <div className='rating-experience'>
+                  <Rating value={experience} />
+                  <span className='count-space'>{experience}</span>
+                </div>
+                <p>Level of Difficulty</p>
+                <div className='rating-experience'>
+                  <Rating value={difficulty} />
+                  <span className='count-space'>{difficulty}</span>
+                </div>
+                <p>Value for Money</p>
+                <div className='rating-experience'>
+                  <Rating value={value_money} />
+                  <span className='count-space'>{value_money}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button className='review-btn' type='button' onClick={this.handleSubmit()}>
+          Write a Review
+        </button>
       </div>
     );
   }

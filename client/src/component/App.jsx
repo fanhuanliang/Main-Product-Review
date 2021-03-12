@@ -94,7 +94,7 @@ class App extends React.Component {
         <TopBar totalReviews={totalReviews} hiddenContent={this.hiddenContent.bind(this)} />
         <div className='wrapper' style={{ height: hiding }}>
           <div className='style_wrapper'>
-            <Overall overall={overall} />
+            <Overall overall={overall} totalReviews={totalReviews} />
             <SortData sortData={this.handleSortData.bind(this)} />
             <Reviews reviews={reviews} />
             <Pagination reviewPerPage={reviewPerPage} totalReviews={totalReviews} paginate={this.paginate.bind(this)} />
