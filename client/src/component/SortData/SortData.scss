@@ -16,15 +16,20 @@ select {
   border: 1px solid rgb(224, 224, 224);
   color: rgb(44, 44, 44);
   height: 3.45rem;
-  font-size: 20px;
+  font-size: 17px;
   width: 100%;
   margin: 0px 0px 20px 0px;
   position: relative;
   cursor: pointer;
+  text-indent: 10px;
+}
+
+h3 {
+  margin: 40px 10px 0px 10px;
 }
 
 .sort-box {
   border-bottom: 1px solid rgb(224, 224, 224);
-  margin: 30px 10px;
+  margin: 20px 10px;
 }
 
