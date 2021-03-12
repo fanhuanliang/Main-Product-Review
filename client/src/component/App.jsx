@@ -20,44 +20,32 @@ class App extends React.Component {
   }
 
   getRequest(number, sort) {
-    axios.get(`/api/products/1?page=${number}&sort=${sort}`)
-      // axios.get(`/api/products/${window.location.pathname.slice(-2, -1)}?page=${number}&sort=${sort}`)
-      // axios.get(`/api${window.location.pathname}?page=${number}&sort=${sort}`)
+    axios.get(`/api/products/2?page=${number}&sort=${sort}`)
       .then((response) => {
-        // handle success
-        // console.log(window.location.pathname);
-        // console.log(window.location.pathname.slice(-2, -1))
         this.setState({
           totalReviews: response.data[0],
           reviews: response.data.slice(1)
         });
       })
       .catch((error) => {
-        // handle error
         console.log(error);
       })
       .then(() => {
-        // always executed
         this.getOverallRequest();
       });
   }
 
   getOverallRequest() {
-    axios.get('/api/products/overall/1')
-      // axios.get(`/api/products/overall/${window.location.pathname.slice(-2, -1)}`)
+    axios.get('/api/products/overall/2')
       .then((response) => {
-        // handle success
-        // console.log(response)
         this.setState({
           overall: response.data[0]
         });
       })
       .catch((error) => {
-        // handle error
         console.log(error);
       })
       .then(() => {
-        // always executed
       });
   }
 
@@ -70,12 +58,10 @@ class App extends React.Component {
   }
 
   paginate(pageNumber) {
-    // this.getOverallRequest();
     this.getRequest(pageNumber);
   }
 
   handleSortData(e) {
-    // this.getRequest();
     this.getRequest(1, e);
   }
 
@@ -84,7 +70,6 @@ class App extends React.Component {
   }
 
   render() {
-    // console.log(this.state.reviews)
     const { overall, totalReviews, reviews, reviewPerPage, hiding } = this.state;
     if (!totalReviews || !overall) {
       return 'loading...';

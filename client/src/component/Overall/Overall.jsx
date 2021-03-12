@@ -1,19 +1,20 @@
 import React from 'react';
 import Rating from '../Rating/Rating.jsx';
 import BarRating from '../BarRating.jsx';
+import WriteReview from '../WriteReview/WriteReview.jsx';
 import './Overall.scss';
 
 class Overall extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  // this.state = {
-  //   writeReview: ''
-  // };
-  // }
+  constructor(props) {
+    super(props);
+    this.state = {
+      writeReview: false
+    };
+  }
 
   // eslint-disable-next-line class-methods-use-this
   handleSubmit() {
-    // console.log('write review page')
+    this.setState({ writeReview: true });
   }
 
   render() {
@@ -34,6 +35,9 @@ class Overall extends React.Component {
           <div className='overallRating'>
             <div>
               Overall Rating
+              <button className='review-btn' type='button' onClick={() => this.handleSubmit()}>
+                Write a Review
+              </button>
               <div className='rating'>
                 <Rating value={starRating} />
                 <div className='count-space'>
@@ -88,9 +92,7 @@ class Overall extends React.Component {
             </div>
           </div>
         </div>
-        <button className='review-btn' type='button' onClick={this.handleSubmit()}>
-          Write a Review
-        </button>
+        <WriteReview open={this.state.writeReview} onClose={() => this.setState({ writeReview: false })} />
       </div>
     );
   }
