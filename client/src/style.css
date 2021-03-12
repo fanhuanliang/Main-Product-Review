@@ -1,51 +1,11 @@
-.container{
-  font-family: Cera Pro,sans-serif;
+.container {
+  font-family: Cera Pro, sans-serif;
   font-size: 16px;
   display: block;
   /* overflow:hidden; */
 }
-.animation-btn {
-  letter-spacing: normal;
-  text-indent: 0px;
-  text-shadow: none;
-  display: inline-block;
-  text-align: center;
-  align-items: flex-start;
-  width: 100%;
-  background: rgb(248, 248, 248);
-  /* border-top: 1px solid rgb(224, 224, 224); */
-  border: 0;
-  padding: 0;
-  overflow: visible;
-  border-bottom: 1px solid rgb(224, 224, 224);
-}
-.sharedstyle{
-  width: 100%;
-  max-width: 110rem;
-  padding: 0px 0.75rem;
-  margin: 0px auto;
-  display: block;
-  cursor: pointer;
-  text-indent: 0px;
-  text-shadow: none;
-  text-align: center;
-}
-.grey-bar{
-  width: 100%;
-  margin: 0px auto;
-  padding: 0px;
-  display: flex;
-  flex-direction: row;
-  -webkit-box-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: center;
-  align-items: center;
-  overflow: hidden;
-  color: #0c0b0b;
-  font-family: system-ui;
-  font-size: 18px;
-}
-.h2{
+
+.h2 {
   margin: 0px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -74,13 +34,13 @@
   }
 } */
 
-.wrapper{
+.wrapper {
   overflow: hidden;
   display: block;
   color: #2c2c2c;
   font-size: 16px;
 }
-.style_wrapper{
+.style_wrapper {
   overflow: visible;
   height: auto;
   position: relative;
@@ -90,52 +50,52 @@
   padding: 0px;
   margin: 0px auto;
 }
-.overview{
+.overview {
   padding: 0px;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
 }
-.rating_wrapper{
+.rating_wrapper {
   padding: 0px;
   display: flex;
   flex-direction: column;
   width: 100%;
 }
-.rating{
+.rating {
   padding: 0.9375rem 0px;
   display: flex;
   align-items: flex-end;
 }
-.overallRating{
+.overallRating {
   display: block;
   color: rgb(0, 0, 0);
 }
-.count-reviews{
+.count-reviews {
   padding: 0px 0px 0px 0.75rem;
   line-height: 1.5;
   font-size: 16px;
 }
-.recommend{
+.recommend {
   color: rgb(0, 133, 55);
   font-size: 1rem;
   line-height: 1.5625rem;
   font-weight: 400;
 }
 
-.rating-part{
+.rating-part {
   width: 400px;
 }
-.rating-box{
+.rating-box {
   display: flex;
   border-bottom: 1px solid grey;
 }
-.overall-experience{
+.overall-experience {
   /* height: 10% */
   border-left: 1px solid grey;
   padding: 0px 20px;
 }
-.review-btn{
+.review-btn {
   float: left;
   position: absolute;
   right: 40px;
@@ -151,14 +111,14 @@
   line-height: 1.1875rem;
   background-color: rgb(0, 109, 183);
   color: rgb(255, 255, 255);
-  border-color:rgb(0, 109, 183);
+  border-color: rgb(0, 109, 183);
   cursor: pointer;
 }
-.sort-box{
-  border-bottom:1px solid rgb(224, 224, 224);
+.sort-box {
+  border-bottom: 1px solid rgb(224, 224, 224);
   margin: 30px 10px;
 }
-select{
+select {
   border: 1px solid rgb(224, 224, 224);
   color: rgb(44, 44, 44);
   height: 3.45rem;
@@ -168,77 +128,79 @@ select{
   position: relative;
   cursor: pointer;
 }
-.sort a{
+.sort a {
   cursor: pointer;
   color: rgba(95, 156, 236, 0.993);
 }
-.sort p{
+.sort p {
   font-style: italic;
 }
-.review{
+.review {
   border-top: 1px solid rgb(224, 224, 224);
   display: flex;
   flex-direction: column;
   padding-top: 1.5625rem;
-  padding-bottom: 1.5625rem
+  padding-bottom: 1.5625rem;
 }
-.date, .star, .title{
+.date,
+.star,
+.title {
   display: block;
   padding: 5px 0px;
 }
-.userName{
+.userName {
   cursor: pointer;
-  color:rgba(95, 156, 236, 0.993)
+  color: rgba(95, 156, 236, 0.993);
 }
-.recommend-review{
+.recommend-review {
   color: rgb(0, 133, 55);
   font-size: 1rem;
   line-height: 1.5625rem;
   font-weight: 700;
 }
-.purchase{
+.purchase {
   font-size: 1rem;
   line-height: 1.5625rem;
   font-weight: 500;
 }
-.purchased{
+.purchased {
   font-weight: bold;
 }
-.each-review{
+.each-review {
   display: flex;
-  border-bottom:1px solid rgb(224, 224, 224) ;
+  border-bottom: 1px solid rgb(224, 224, 224);
   padding: 20px;
-  margin:10px 0px;
+  margin: 10px 0px;
   /* height: 600px; */
 }
-.review-left{
+.review-left {
   width: 700px;
   margin: 0px 20px 0px 0px;
 }
 /* .recview-right{
  float:bottom;
 } */
-.images{
-  display:flex;
+.images {
+  display: flex;
 }
-.image-size{
+.image-size {
   padding: 20px 10px;
   cursor: pointer;
 }
-.helpful{
+.helpful {
   margin: 5px;
 }
-.helpful button{
+.helpful button {
   cursor: pointer;
   border-style: none;
-  background-color: rgb(255, 255, 255);;
+  background-color: rgb(255, 255, 255);
   font-size: 15px;
 }
-.page-bar{
+.page-bar {
   display: flex;
   flex-direction: column;
   -webkit-box-align: center;
-    align-items: center;
+  align-items: center;
   position: relative;
   width: 100%;
   margin-top: 1.875rem;
@@ -251,7 +213,7 @@ select{
   align-items: center;
   height: 1.5625rem;
 }
-li{
+li {
   display: inline-block;
   flex: 0 0 auto;
   text-align: center;
@@ -261,17 +223,17 @@ li{
   text-decoration: underline;
   cursor: pointer;
 }
-.btn-liked-dislike{
+.btn-liked-dislike {
   display: flex;
   cursor: pointer;
 }
-.liked-dislike{
+.liked-dislike {
   cursor: pointer;
   background-color: transparent;
   border: none;
   font-size: 15px;
 }
-.paragraph-content{
+.paragraph-content {
   font-weight: 400;
   line-height: 1.75rem;
   display: block;
@@ -279,7 +241,7 @@ li{
   word-break: break-word;
   overflow: hidden;
 }
-.paragraph-button{
+.paragraph-button {
   width: auto;
   margin: 0px 20px 30px 0px;
   font-weight: 500;
@@ -303,9 +265,11 @@ select:focus {
   outline-offset: none !important;
 }
 
-.animation-btn:focus {outline:0;}
+.animation-btn:focus {
+  outline: 0;
+}
 
-.images{
+.images {
   display: flex;
 }
 .img {
@@ -320,8 +284,8 @@ select:focus {
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
 }
 .modal-content {
   margin: auto;
@@ -343,14 +307,19 @@ select:focus {
 }
 
 /* Add Animation - Zoom in the Modal */
-.modal-content, #caption {
+.modal-content,
+#caption {
   animation-name: zoom;
   animation-duration: 0.6s;
 }
 
 @keyframes zoom {
-  from {transform:scale(0)}
-  to {transform:scale(1)}
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 /* The Close Button */
@@ -364,7 +333,6 @@ select:focus {
   transition: 0.3s;
 }
 
-
 .close:focus {
   color: #bbb;
   text-decoration: none;
@@ -372,25 +340,26 @@ select:focus {
 }
 
 /* 100% Image Width on Smaller Screens */
-@media only screen and (max-width: 700px){
+@media only screen and (max-width: 700px) {
   .modal-content {
     width: 100%;
   }
 }
 
-@media screen and (min-width: 901px) {}
+@media screen and (min-width: 901px) {
+}
 .dHWNWl {
-    width: 1.875rem;
-    height: 1.875rem;
+  width: 1.875rem;
+  height: 1.875rem;
 }
 
 .dHWNWl {
   margin-left: 1.125rem;
 }
 .iwGswK {
-position: relative;
-border: 1px solid rgb(224, 224, 224);
-border-radius: 50%;
-background: rgb(255, 255, 255);
-flex: 0 0 auto;
+  position: relative;
+  border: 1px solid rgb(224, 224, 224);
+  border-radius: 50%;
+  background: rgb(255, 255, 255);
+  flex: 0 0 auto;
 }

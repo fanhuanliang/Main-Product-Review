@@ -1,6 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Rating from './Rating.jsx';
+import Rating from './Rating/Rating.jsx';
 import BarRating from './BarRating.jsx';
 
 class Overall extends React.Component {

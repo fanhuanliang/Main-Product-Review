@@ -1,12 +1,11 @@
 /* eslint-disable react/jsx-no-bind */
 import React from 'react';
-import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Reviews from './ReviewsView.jsx';
 import Overall from './Overall.jsx';
 import Pagination from './Pagination.jsx';
 import SortData from './SortData.jsx';
-import TopBar from './TopBar.jsx';
+import TopBar from './TopBar/TopBar.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -21,10 +20,9 @@ class App extends React.Component {
   }
 
   getRequest(number, sort) {
-    // console.log(number)
-    axios.get(`/api/products/2?page=${number}&sort=${sort}`)
-    // axios.get(`/api/products/${window.location.pathname.slice(-2, -1)}?page=${number}&sort=${sort}`)
-    // axios.get(`/api${window.location.pathname}?page=${number}&sort=${sort}`)
+    axios.get(`/api/products/1?page=${number}&sort=${sort}`)
+      // axios.get(`/api/products/${window.location.pathname.slice(-2, -1)}?page=${number}&sort=${sort}`)
+      // axios.get(`/api${window.location.pathname}?page=${number}&sort=${sort}`)
       .then((response) => {
         // handle success
         // console.log(window.location.pathname);
@@ -45,8 +43,8 @@ class App extends React.Component {
   }
 
   getOverallRequest() {
-    axios.get('/api/products/overall/2')
-    // axios.get(`/api/products/overall/${window.location.pathname.slice(-2, -1)}`)
+    axios.get('/api/products/overall/1')
+      // axios.get(`/api/products/overall/${window.location.pathname.slice(-2, -1)}`)
       .then((response) => {
         // handle success
         // console.log(response)

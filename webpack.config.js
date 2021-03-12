@@ -19,6 +19,11 @@ module.exports = {
         use: ['style-loader', 'css-loader']
       },
       {
+        test: /\.(scss)$/,
+        exclude: /node_modules/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
+      },
+      {
         test: /\.(jsx|js)$/,
         include: path.resolve(__dirname, 'client', 'src'),
         exclude: /node_modules/,
