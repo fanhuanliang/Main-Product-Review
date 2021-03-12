@@ -15,8 +15,7 @@ class App extends React.Component {
       overall: {},
       reviews: [],
       reviewPerPage: 5,
-      // hiding: '0px'
-      hiding: 'auto'
+      hiding: '0px'
     };
   }
 
@@ -51,11 +50,11 @@ class App extends React.Component {
   }
 
   hiddenContent() {
-    // if (this.state.hiding === '0px') {
-    //   this.setState({ hiding: 'auto' });
-    // } else if (this.state.hiding === 'auto') {
-    //   this.setState({ hiding: '0px' });
-    // }
+    if (this.state.hiding === '0px') {
+      this.setState({ hiding: 'auto' });
+    } else if (this.state.hiding === 'auto') {
+      this.setState({ hiding: '0px' });
+    }
   }
 
   paginate(pageNumber) {

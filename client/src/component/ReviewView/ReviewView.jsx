@@ -60,14 +60,20 @@ const Review = (props) => {
       <div className='review-right'>
         <div className='brickRating'>
           <p>Play Experience</p>
-          <Rating value={play_experience} />
-          <span>{play_experience}</span>
+          <div className='brick_rating'>
+            <Rating value={play_experience} />
+            <span className='rate_number'>{play_experience}</span>
+          </div>
           <p>Level of Difficulty</p>
-          <Rating value={level_difficulty} />
-          <span>{level_difficulty}</span>
+          <div className='brick_rating'>
+            <Rating value={level_difficulty} />
+            <span className='rate_number'>{level_difficulty}</span>
+          </div>
           <p>Value for Money</p>
-          <Rating value={value_for_money} />
-          <span>{value_for_money}</span>
+          <div className='brick_rating'>
+            <Rating value={value_for_money} />
+            <span className='rate_number'>{value_for_money}</span>
+          </div>
         </div>
         <p>
           Build Time:

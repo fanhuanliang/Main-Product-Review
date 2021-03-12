@@ -10,7 +10,20 @@
   padding-right: 2.5rem;
 }
 
-.rating {
+.review-right {
+    width: 16.97rem;
+    padding: 200px 0px 0px 0px;
+}
+
+.rate_number {
+  margin: 0px 0px 0px 20px;
+}
+
+.star_rating {
+  margin: 10px;
+}
+
+.rating, .brick_rating {
     display: flex;
     -webkit-box-align: center;
     align-items: center;
