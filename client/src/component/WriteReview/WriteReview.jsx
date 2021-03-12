@@ -27,7 +27,7 @@ export default function WriteReview(props) {
     <div className='top-layer'>
       <div className='bottom-layer'>
         <button type='button' onClick={props.onClose}>Close</button>
-        <div>Grocery List</div>
+        <div>To be continue</div>
       </div>
     </div>
   );
