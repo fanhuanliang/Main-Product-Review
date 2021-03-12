@@ -1,0 +1,12 @@
+.star_rating, .brick_rating {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.star, .brick {
+    width: 1.5625rem;
+    height: 1.5625rem;
+    margin-right: 0.0625rem;
+    align-self: baseline
+}

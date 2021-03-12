@@ -2,31 +2,11 @@
 /* eslint-disable no-shadow */
 /* eslint-disable consistent-return */
 import React from 'react';
+import Brick from './Brick.jsx';
+import Star from './Star.jsx';
+import './Rating.scss';
 
-const ratingStart = (value) => {
-  switch (value) {
-  case 0:
-    return 'https://front-end-capstoneproject.s3-us-west-1.amazonaws.com/star-gray.png';
-  case 50:
-    return 'https://front-end-capstoneproject.s3-us-west-1.amazonaws.com/star-half.png';
-  case 100:
-    return 'https://front-end-capstoneproject.s3-us-west-1.amazonaws.com/star.png';
-    // return './bar_ful.png';
-  }
-};
-
-const ratingBrick = (value) => {
-  switch (value) {
-  case 0:
-    return 'https://front-end-capstoneproject.s3-us-west-1.amazonaws.com/brick_gray.png';
-  case 50:
-    return 'https://front-end-capstoneproject.s3-us-west-1.amazonaws.com/brick_half.png';
-  case 100:
-    return 'https://front-end-capstoneproject.s3-us-west-1.amazonaws.com/brick_ful.png';
-  }
-};
 const ratingIcons = (value) => {
-  // console.log(value)
   switch (true) {
   case (!value):
     return [0, 0, 0, 0, 0];
@@ -58,7 +38,7 @@ const Rating = ({ value }) => {
     return (
       <span className='star_rating'>
         {
-          ratingIcons(parseFloat(value.star)).map((value, index) => <img src={ratingStart(value)} width={30} key={index} />)
+          ratingIcons(parseFloat(value.star)).map((value, index) => <Star value={value} key={index} />)
         }
       </span>
     );
@@ -66,7 +46,7 @@ const Rating = ({ value }) => {
   return (
     <span className='brick_rating'>
       {
-        ratingIcons(parseFloat(value)).map((value, index) => <img src={ratingBrick(value)} width={30} key={index} />)
+        ratingIcons(parseFloat(value)).map((value, index) => <Brick value={value} key={index} />)
       }
     </span>
   );
