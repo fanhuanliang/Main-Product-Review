@@ -20,7 +20,8 @@ class App extends React.Component {
   }
 
   getRequest(number, sort) {
-    axios.get(`/api/products/2?page=${number}&sort=${sort}`)
+    // axios.get(`/api/products/2?page=${number}&sort=${sort}`)
+    axios.get(`/api${window.location.pathname}?page=${number}&sort=${sort}`)
       .then((response) => {
         this.setState({
           totalReviews: response.data[0],
@@ -36,7 +37,8 @@ class App extends React.Component {
   }
 
   getOverallRequest() {
-    axios.get('/api/products/overall/2')
+    // axios.get('/api/products/overall/2')
+    axios.get(`/api/overall${window.location.pathname}`)
       .then((response) => {
         this.setState({
           overall: response.data[0]

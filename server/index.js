@@ -8,7 +8,8 @@ const db = require('../database/index.js');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, '../client/dist')));
+// app.use(express.static(path.join(__dirname, '../client/dist')));
+app.use('/products/:id', express.static(path.join(__dirname, '../client/dist')));
 
 const getPerPage = (number, data) => {
   let currentPage = number;
@@ -53,7 +54,7 @@ app.get('/api/products/:id', (req, res) => {
   });
 });
 
-app.get('/api/products/overall/:id', (req, res) => {
+app.get('/api/overall/products/:id', (req, res) => {
   db.getOverallData(req.params.id, (err, results) => {
     if (err) {
       res.status(400).send(err);
